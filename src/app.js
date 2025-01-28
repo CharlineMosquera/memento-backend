@@ -27,11 +27,6 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Rutas
-
-// Rutas de prueba
-app.get("/", (req, res) => {
-  res.json({ message: "API Memento Funcionando" });
-});
 app.use("/api/users", userRoutes);
 
 // Ruta para la documentacion de la Api con Swagger
