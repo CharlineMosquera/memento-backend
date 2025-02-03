@@ -37,7 +37,7 @@ export const loginUser = async (req, res) => {
 
     const token = generateToken(user);
     res.cookie('tokenjwt', token, { httpOnly: false });
-    res.status(200).json({ message: 'Login exitoso', token });
+    res.status(200).json({ message: 'Login exitoso', token, userId: user._id });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

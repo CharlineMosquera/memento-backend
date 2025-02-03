@@ -8,6 +8,7 @@ const eventSchema = new Schema({
   location: { type: String, required: true },
   creator: { type: Schema.Types.ObjectId, ref: "User" },
   attendees: [{ type: Schema.Types.ObjectId, ref: "User" }], // Usuarios que asistirán
+  imageUrl: { type: String, required: true },
   createdAt: { type: Date, default: Date.now }
 });
 

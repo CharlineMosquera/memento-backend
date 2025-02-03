@@ -5,6 +5,7 @@ import swaggerUi from "swagger-ui-express";
 import swaggerOptions from "./utils/swagger-config.js";
 import swaggerJsdoc from "swagger-jsdoc";
 import dotenv from "dotenv";
+import eventRoutes from './routes/eventRoutes.js';
 import userRoutes from "./routes/userRoutes.js";
 
 // Cargando los secretos (variables de entorno) desde el archivo .env
@@ -16,8 +17,9 @@ app.disable("x-powered-by"); // Deshabilitar la cabecera X-Powered-By
 // Habilitar CORS
 app.use(
   cors({
-    origin: "*", // Se permite cualquier origen para facilitar el uso de la api en desarrollo
+    origin: "http://localhost:5173", // URL permitida para realizar peticiones
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true, // Indica que las cookies deben ser transmitidas con el encabezado 'Cookie'  
   })
 );
 
@@ -28,6 +30,7 @@ app.use(cookieParser());
 
 // Rutas
 app.use("/api/users", userRoutes);
+app.use('/api/events', eventRoutes);
 
 // Ruta para la documentacion de la Api con Swagger
 const swaggerDocs = swaggerJsdoc(swaggerOptions);

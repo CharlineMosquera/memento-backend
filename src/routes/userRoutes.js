@@ -117,7 +117,7 @@ router.post('/logout', authMiddleware, logoutUser);
  *           type: string
  *         required: true
  *         description: ID del usuario
- *         example: 679841b227eee87ab9df6d1e
+ *         example: 679f0e37b552967c0570290d
  *     responses:
  *       200:
  *         description: Usuario eliminado exitosamente
